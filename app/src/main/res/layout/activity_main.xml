@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/primary_material_light"
+                android:background="?colorPrimary"
                 tools:context=".MainActivity">
 
     <TextView
@@ -13,18 +13,21 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="?actionBarSize"
         android:gravity="center"
-        android:textColor="?colorPrimary"
-        android:textSize="72sp"/>
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"/>
 
     <ImageView
         android:id="@+id/imgContent"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/circle"
         android:padding="32dp"
         android:src="@drawable/ic_fingerprint"
-        android:tint="@android:color/white"
+        android:tint="?colorPrimary"
         tools:ignore="ContentDescription"/>
 
     <View
@@ -35,9 +38,58 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/red_line"/>
 
+
+    <ImageButton
+        android:id="@+id/btnHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_help_white_24dp"
+        tools:ignore="ContentDescription"/>
+
+    <ProgressBar
+        android:id="@+id/pbLoad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
     <at.markushi.ui.RevealColorView
         android:id="@+id/reveal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:clickable="true"/>
+
+    <RelativeLayout
+        android:id="@+id/lyOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="48sp"/>
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtResult"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="Try Again"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>
